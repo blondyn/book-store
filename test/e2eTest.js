@@ -35,8 +35,7 @@ describe('POST /isbn', function(){
       .expect('Content-Type', /json/)
       .expect(200, function(err, res){
         if(err) return done(err);
-        res.body.length == 1;
-        assert.equal(res.body, 100)
+        assert.equal(res.body.length, 1)
         done();
       })
   });
