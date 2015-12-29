@@ -7,7 +7,8 @@
     "start": "node server.js",
     "test": "mocha test/e2eTest.js",
     "lint": "jshint --exclude=node_modules/** **.js",
-    "test:xunit": "npm run test -- --reporter xunit"
+    "test:xunit": "npm run test -- --reporter xunit",
+    "infrastructure": "node infrastructure/test.js && node infrastructure/prod.js"
   },
   "author": "",
   "license": "ISC",
