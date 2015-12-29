@@ -9,6 +9,7 @@ module.exports = function(routes) {
   app.post('/stock', routes.updateStock);
   app.get('/stock', routes.showStock);
   app.get('/stock/:isbn', routes.checkIsbn);
+  app.get('/copies/:isbn', routes.copiesLeft);
   app.use(errors.clientError);
   app.use(errors.serverError);
 

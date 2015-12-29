@@ -29,10 +29,22 @@ module.exports = function (db) {
 
   }
 
+  function copiesLeft(req, res, next) {
+    var isbn = parseInt(req.params.isbn);
+
+    db.checkIsbn(isbn)
+      .then(function (doc) {
+        var count = doc[0].count;
+        var page = ['<html><head></head><body><p>count: ',count, '</p></body>'].join('');
+        res.send(page);
+      })
+  }
+
   return {
     showStock: showStock,
     checkIsbn: checkIsbn,
-    updateStock: updateStock
+    updateStock: updateStock,
+    copiesLeft: copiesLeft
   }
 }
 
